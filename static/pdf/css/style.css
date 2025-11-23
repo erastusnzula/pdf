@@ -14,6 +14,7 @@
     --muted:#6b7280; 
     --danger:#ef4444;
     --shadow: 0 6px 18px rgba(2,6,23,0.08);
+    --width: 890px;
 }
 
 *{
@@ -114,7 +115,7 @@ button:hover{
 }
 
 .home-links{
-    width: 70%;
+    width: var(--width);
     margin: auto;
     padding: 1rem;
     overflow-x: auto;
@@ -136,7 +137,7 @@ button:hover{
 
 
 .login-container{
-    width: 70%;
+    width: var(--width);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -174,21 +175,23 @@ button:hover{
 }
 
 .home-container{
-    width: 60%;
+    width: var(--width);
     margin: auto;
     text-align: center;
     color: var(--secondary-color);
     
 }
 
-.home-container .summary{
-    line-height: 2.2rem;
+
+.home-container .summary, .home-container .details{
+    line-height: 2.5rem;
+    font-size: 18px;
     
 }
 
 .home-container .tagline{
     color: var(--primary-color);
-    font-weight: bold;
+    font-style: italic;
 }
 
 .nav-footer{
@@ -212,7 +215,7 @@ button:hover{
 .merge-container .card{
     margin:1rem auto;
     width:100%;
-    max-width:980px;
+    max-width:var(--width);
     background:var(--button-color);
     border-radius:var(--default-radius);
     box-shadow:var(--shadow);
@@ -365,7 +368,7 @@ button:hover{
 
 
 .split-container{
-    max-width:980px;
+    max-width:var(--width);
     margin:40px auto;
     background:#fff;
     padding:30px;
@@ -451,4 +454,205 @@ button:hover{
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(5px);}
     to{opacity:1; transform:translateY(0);}
+}
+
+.carousel {
+  width: var(--width);
+  height: 380px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.slides {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  animation: autoplay 12s infinite;
+}
+
+.slides input { display: none; }
+
+.slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Gradient backgrounds */
+.slide1 { background: linear-gradient(135deg, #0078D7, #00B4FF); }
+.slide2 { background: linear-gradient(135deg, #FF6A00, #FF9D2E); }
+.slide3 { background: linear-gradient(135deg, #6A00FF, #B44CFF); }
+
+.icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.carousel h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.carousel p {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.carousel .btn {
+  display: inline-block;
+  background: white;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.carousel .btn:hover {
+  background: #e6e6e6;
+}
+
+/* Manual control dot buttons */
+.navigation {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot:hover { opacity: 1; }
+
+/* Slide movement controlled by radio buttons */
+#s1:checked ~ .slides { margin-left: 0; animation: none; }
+#s2:checked ~ .slides { margin-left: -100%; animation: none; }
+#s3:checked ~ .slides { margin-left: -200%; animation: none; }
+
+/* Auto-Slide Keyframes */
+@keyframes autoplay {
+  0%, 33% { margin-left: 0; }
+  33.01%, 66% { margin-left: -100%; }
+  66.01%, 100% { margin-left: -200%; }
+}
+
+
+.lock-container{
+    width: var(--width);
+    margin: auto;
+}
+
+.lock-container .upload-area {
+  width: 100%;
+  padding: 40px;
+  border: 2px dashed #0078D7;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #f8fbff;
+}
+
+.lock-container .upload-area:hover {
+  background: #eef6ff;
+}
+
+.lock-container .upload-area p {
+  margin: 0;
+  font-size: 18px;
+  color: #0078D7;
+}
+
+.lock-container .upload-area span {
+  display: block;
+  margin: 10px 0;
+  color: #666;
+}
+
+.lock-container .browse-btn {
+  display: inline-block;
+  background: #0078D7;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lock-container .browse-btn input {
+  display: none;
+}
+
+#fileName {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Password field */
+.lock-container .input-group {
+  margin-top: 20px;
+}
+
+.lock-container .input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.lock-container .input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0078D7;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.lock-container .input-group input:focus {
+  border-color: #005bb5;
+}
+
+/* Submit button */
+#encryptBtn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: #0078D7;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+#encryptBtn.enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#encryptBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
 }

@@ -1,0 +1,47 @@
+<div class="carousel">
+
+  <div class="slides">
+    <!-- Hidden Radio Buttons -->
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
+
+    <!-- Slide 1 -->
+    <div class="slide slide1">
+      <div class="content">
+        <i class="icon">📄</i>
+        <h2>Merge PDF</h2>
+        <p>Combine multiple PDF files into one fast.</p>
+        <a href="{% url 'pdf:merge' %}" class="btn">Start Merging</a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide slide2">
+      <div class="content">
+        <i class="icon">🗜️</i>
+        <h2>Compress PDF</h2>
+        <p>Reduce PDF size while staying sharp.</p>
+        <a href="{% url 'pdf:compress' %}" class="btn">Compress Now</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide slide3">
+      <div class="content">
+        <i class="icon">🔒</i>
+        <h2>Protect PDF</h2>
+        <p>Encrypt PDFs with strong password security.</p>
+        <a href="{% url 'pdf:lock' %}" class="btn">Secure PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="navigation">
+    <label for="s1" class="dot"></label>
+    <label for="s2" class="dot"></label>
+    <label for="s3" class="dot"></label>
+  </div>
+
+</div>

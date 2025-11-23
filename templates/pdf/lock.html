@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+
 <div class="lock-container">
     <h1>Lock PDFs</h1>
+    <form id="encryptForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="upload-area" id="uploadArea">
+            <p>Drag & drop PDF here</p>
+            <span>or</span>
+            <label class="browse-btn">Choose File
+                <input type="file" id="pdfInput" name="pdf" accept="application/pdf"/>
+            </label>
+            <div id="fileName"></div>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="passwordInput" name="password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" id="encryptBtn" disabled>Encrypt PDF</button>
+    </form>
+
 </div>
+<script src="{% static 'pdf/js/lock.js' %}"></script>
 {% endblock content %}
+
+
+
