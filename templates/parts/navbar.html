@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            <img src="{% static 'pdf/logo/clogo.png' %}" alt="">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-link services">
+                <div class="dropdown">
+                    <a class="link" href="/">Services</a>
+                    <div class="dropdown-options">
+                        <a href="{% url 'pdf:merge' %}">Merge PDF</a>
+                        <a href="{% url 'pdf:split' %}">Split PDF</a>
+                        <a href="{% url 'pdf:lock' %}">Lock PDF</a>
+                        <a href="{% url 'pdf:unlock' %}">Unlock PDF</a>
+                        <a href="{% url 'pdf:compress' %}">Compress PDF</a>
+
+                    </div>
+                </div>
+            </li>
+            <li class="nav-link">
+                <a class="link" href="/">Contact</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-link">
+                <a class="link" href="{% url 'users:logout' %}">Log out</a>
+            </li>
+            {% else %}
+            <li class="nav-link">
+                <a class="link" id="log-in" href="{% url 'users:login' %}">Log in</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

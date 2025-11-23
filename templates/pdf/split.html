@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="split-container">
+    <h2 style="text-align:center;">Split PDF</h2>
+    <form id="mergeForm" action="{% url 'pdf:split' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="drop-area" id="dropArea">
+            <p>Drag & drop your PDF here<br>or click to choose</p>
+            <input type="file" name="pdf" id="fileInput" class="hidden-input" accept="application/pdf">
+        </div>
+        <div id="preview" class="preview-box"></div>
+        <label class="label">Split into how many equal parts?</label>
+        <input type="number" name="parts" id="partsCount" class="number-input" placeholder="e.g. 2, 3, 4, 5..." min="2">
+        <button class="btn" id="submitBtn">Split PDF</button>
+    </form>
+    <div id="successMessage" class="success-message">
+        ✅ PDF successfully split!
+    </div>
+
+
+</div>
+<script src="{% static 'pdf/js/split.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="merge-container">
+    <div class="card">
+        <h1>Merge PDF Files</h1>
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %}
+        <p class="lead">Drag your PDF files here or click Browse. They will be merged in order and auto-downloaded.</p>
+
+        <form id="mergeForm" action="{% url 'pdf:merge' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label id="drop-area" class="drop-area" tabindex="0">
+                <div class="drop-icon" aria-hidden>📄</div>
+                <div class="drop-content">
+                    <div><strong>Drop PDF files here</strong> or <span id="browseText">browse</span></div>
+                    <div style="font-size:13px;color:var(--muted);margin-top:6px">PDF only • Multiple files supported
+                    </div>
+                </div>
+
+                <div class="drop-actions">
+                    <button type="button" class="btn" id="browseBtn">Browse</button>
+                    <button type="button" class="btn clear" id="clearBtn">Clear all</button>
+                </div>
+
+                <input id="fileInput" name="pdfs" type="file" accept="application/pdf" multiple aria-hidden="true"/>
+            </label>
+
+            <div id="files" class="files" aria-live="polite" style="margin-top:18px"></div>
+
+            <button type="submit" class="btn" style="margin-top:20px">Merge PDFs</button>
+        </form>
+
+        <div id="loader" style="display:none;margin-top:15px;color:var(--primary-color);font-weight:600;">
+            Merging... Please wait.
+        </div>
+        <div id="successMsg" style="display:none;margin-top:10px;color:green;font-weight:500;">✅ Files successfully merged!</div>
+    </div>
+</div>
+<script src="{% static 'pdf/js/merge.js' %}"></script>
+
+
+{% endblock content %}
