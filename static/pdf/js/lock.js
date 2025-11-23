@@ -51,17 +51,29 @@ encryptForm.addEventListener("submit", async function(e) {
 
   const formData = new FormData(encryptForm);
 
-  const response = await fetch("", {
+  const response = await fetch("/lock/", {
     method: "POST",
     body: formData
   });
 
   const blob = await response.blob();
-  const url = window.URL.createObjectURL(blob);
+    // Extract filename from response header
+    const disposition = response.headers.get("Content-Disposition");
+    let filename = "encrypted.pdf"; // fallback
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "encrypted.pdf";
-  a.click();
+    if (disposition && disposition.includes("filename=")) {
+      filename = disposition
+        .split("filename=")[1]
+        .split(";")[0]
+        .replace(/['"]/g, "");
+    }
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   URL.revokeObjectURL(url);
 });

@@ -4,8 +4,8 @@
 {% block content %}
 
 <div class="lock-container">
-    <h1>Lock PDFs</h1>
-    <form id="encryptForm" method="POST" enctype="multipart/form-data">
+    <h1>Encrypt PDF</h1>
+    <form id="encryptForm" method="POST" enctype="multipart/form-data" action=".">
         {% csrf_token %}
 
         <div class="upload-area" id="uploadArea">
@@ -26,6 +26,7 @@
     </form>
 
 </div>
+{% include 'parts/home_links.html' %}
 <script src="{% static 'pdf/js/lock.js' %}"></script>
 {% endblock content %}
 

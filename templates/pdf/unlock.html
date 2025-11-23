@@ -1,8 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="unlock-container">
-    <h1>Unlock PDFs</h1>
+    <div class="card">
+        <h2>Unlock PDF</h2>
+
+        <form id="unlockForm" method="POST" enctype="multipart/form-data" action=".">
+            {% csrf_token %}
+
+            <div class="drop" id="dropZone">
+                <p>Drag & drop PDF here or click to browse</p>
+                <input type="file" id="pdf" name="pdf" accept="application/pdf" style="display:none;">
+                <div id="fileName"></div>
+            </div>
+
+            <input type="password" name="password" placeholder="Enter password">
+
+            {% if error %}
+            <p style="color:red;">{{ error }}</p>
+            {% endif %}
+
+            <button id="submitBtn" disabled>Unlock PDF</button>
+        </form>
+    </div>
+
+
 </div>
 {% include 'parts/home_links.html' %}
+
+<script src="{% static 'pdf/js/unlock.js' %}"></script>
 {% endblock content %}

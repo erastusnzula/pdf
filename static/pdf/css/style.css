@@ -635,6 +635,7 @@ button:hover{
 /* Submit button */
 #encryptBtn {
   margin-top: 25px;
+  margin-bottom: 1rem;
   width: 100%;
   padding: 12px;
   background: #0078D7;
@@ -655,4 +656,56 @@ button:hover{
 #encryptBtn:disabled {
   cursor: not-allowed;
   opacity: 0.4;
+}
+
+.unlock-container{
+    width: var(--width);
+    margin: auto;
+}
+
+.unlock-container .card {
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.unlock-container .drop {
+    border: 2px dashed #0078D7;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background: #eef6ff;
+}
+
+.unlock-container #fileName {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.unlock-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.unlock-container button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #0078D7;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.unlock-container button:disabled {
+    background: #8bbff1;
 }
