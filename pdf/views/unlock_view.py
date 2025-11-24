@@ -40,4 +40,4 @@ class UnlockView(View):
             response["Content-Disposition"] = f'attachment; filename={new_filename}'
             return response
         except Exception as e:
-            return HttpResponse(f"Error processing file: {str(e)}", status=400)
+            return render(self.request, 'pdf/unlock.html', {'error': f'Error unlocking pdf {e}'})
