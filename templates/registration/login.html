@@ -4,7 +4,7 @@
 
 <div class="login-container">
     <div class="login-header">
-         <h1>Log In</h1>
+        <h1>Log In</h1>
     </div>
 
     <div class="login-body">
@@ -25,7 +25,14 @@
             </label>
         </form>
     </div>
-
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+<form action="{% url 'accounts:login' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name="submit">Log in</button>
+</form>
 </div>
 
 {% endblock %}

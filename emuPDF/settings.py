@@ -46,7 +46,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS =[
     'pdf',
-    'users',
+    'accounts',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -152,3 +152,5 @@ FIREBASE_CONFIG = {
     'messaging_sender_id': env('MESSAGING_SENDER_ID', default=''),
     'app_id': env('APP_ID', default='')
 }
+
+LOGIN_REDIRECT_URL = "/"

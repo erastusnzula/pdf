@@ -23,11 +23,11 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-link">
-                <a class="link" href="{% url 'users:logout' %}">Log out</a>
+                <a class="link" href="{% url 'accounts:logout' %}">Log out</a>
             </li>
             {% else %}
             <li class="nav-link">
-                <a class="link" id="log-in" href="{% url 'users:login' %}">Log in</a>
+                <a class="link" id="log-in" href="{% url 'accounts:login' %}">Log in</a>
             </li>
             {% endif %}
         </ul>

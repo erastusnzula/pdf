@@ -101,8 +101,9 @@ button:hover{
     flex-direction: column;
     width: 150px;
     gap: .5rem;
+    border-radius: var(--default-radius);
     padding: var(--dropdown-padding);
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 .navbar .nav-container .nav-links .nav-link .dropdown-options a{
@@ -162,6 +163,10 @@ button:hover{
     margin-top: .8rem;
 }
 
+.login-container button{
+    margin: 1rem 0;
+}
+
 .login-container .login-body form #remember{
     outline: none;
 }
@@ -170,8 +175,16 @@ button:hover{
     text-decoration: none;
 }
 
+.login-container .login-body form #reset-password:hover{
+    color: var(--primary-color);
+}
+
 .login-container .login-body form #register{
     text-decoration: none;
+}
+
+.login-container .login-body form #register:hover{
+    color: var(--primary-color);
 }
 
 .home-container{
@@ -275,13 +288,15 @@ button:hover{
 
 
 .merge-container .btn{
+    width: 100%;
     background:var(--primary-color);
     color:white;
-    padding:10px 14px;
-    border-radius:8px;
     border:none;
     font-weight:600;
-    cursor:pointer
+    cursor:pointer;
+    font-size:16px;
+    border-radius:var(--default-radius);
+    margin-top:25px;
 }
 
 .merge-container .btn.clear{
