@@ -31,6 +31,9 @@
             {% csrf_token %}
             {{ form.as_div }}
             <button type="submit" name="submit">Log in</button>
+            <label for="register">
+                <a href="{% url 'accounts:register' %}" id="register" class="register">Don't have an account? Click Here To Register</a>
+            </label>
         </form>
     </div>
 

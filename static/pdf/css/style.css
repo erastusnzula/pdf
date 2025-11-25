@@ -169,6 +169,11 @@ button:hover{
     padding: 1rem;
 }
 
+.login-container form .helptext{
+    padding: 0 1rem;
+    color: var(--secondary-color);
+}
+
 .login-container form input{
     width: 100%;
     padding: .5rem;
@@ -182,7 +187,13 @@ button:hover{
     margin: 1rem 0;
 }
 
+.login-container .login-body form #register{
+    text-decoration: none;
+}
 
+.login-container .login-body form #register:hover{
+    color: var(--primary-color);
+}
 
 
 /* .login-container .login-body form #remember{
@@ -197,13 +208,7 @@ button:hover{
     color: var(--primary-color);
 }
 
-.login-container .login-body form #register{
-    text-decoration: none;
-}
-
-.login-container .login-body form #register:hover{
-    color: var(--primary-color);
-} */
+ */
 
 .home-container{
     width: var(--width);
