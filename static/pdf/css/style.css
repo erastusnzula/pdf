@@ -74,6 +74,15 @@ button:hover{
     cursor: pointer;
 }
 
+.navbar .nav-container .nav-links .logout-btn{
+    cursor:pointer; 
+    padding: 0;
+    color: var(--secondary-color);
+    font-size: 16px;
+    background-color: transparent;
+    font-weight: normal;
+}
+
 .navbar .nav-container .nav-links .nav-link #log-in:hover{
     text-decoration: none;
     background-color: var(--secondary-color);
@@ -85,7 +94,7 @@ button:hover{
     font-weight: 500;
 }
 
-.navbar .nav-container .nav-links .nav-link a:hover{
+.navbar .nav-container .nav-links .nav-link a:hover, .navbar .nav-container .nav-links .logout-btn:hover{
     color: var(--primary-color);
     text-decoration: underline;
 }
@@ -150,12 +159,18 @@ button:hover{
     margin-bottom: 1rem;
 }
 
-.login-container .login-body form{
+.login-container form{
     display: flex;
     flex-direction: column;
 }
 
-.login-container .login-body form input{
+.login-container form .errorlist{
+    color: red;
+    padding: 1rem;
+}
+
+.login-container form input{
+    width: 100%;
     padding: .5rem;
     outline: 1px solid var(--primary-color);
     border: none;
@@ -167,7 +182,10 @@ button:hover{
     margin: 1rem 0;
 }
 
-.login-container .login-body form #remember{
+
+
+
+/* .login-container .login-body form #remember{
     outline: none;
 }
 
@@ -185,7 +203,7 @@ button:hover{
 
 .login-container .login-body form #register:hover{
     color: var(--primary-color);
-}
+} */
 
 .home-container{
     width: var(--width);

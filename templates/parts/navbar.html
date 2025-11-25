@@ -13,7 +13,7 @@
                         <a href="{% url 'pdf:split' %}">Split PDF</a>
                         <a href="{% url 'pdf:lock' %}">Encrypt PDF</a>
                         <a href="{% url 'pdf:unlock' %}">Unlock PDF</a>
-                        <a href="{% url 'pdf:compress' %}">Compress PDF</a>
+<!--                        <a href="{% url 'pdf:compress' %}">Compress PDF</a>-->
 
                     </div>
                 </div>
@@ -23,7 +23,10 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-link">
-                <a class="link" href="{% url 'accounts:logout' %}">Log out</a>
+                <form action="{% url 'accounts:logout' %}" method='post'>
+                {% csrf_token %}
+                <button class="logout-btn" type="submit" name='submit'>Log out</button>
+            </form>
             </li>
             {% else %}
             <li class="nav-link">
