@@ -19,7 +19,7 @@
                 </div>
             </li>
             <li class="nav-link">
-                <a class="link" href="/">Contact</a>
+                <a class="link" href="{% url 'accounts:contact' %}">Contact</a>
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-link">

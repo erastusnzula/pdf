@@ -320,6 +320,17 @@ button:hover{
     font-size:16px;
     border-radius:var(--default-radius);
     margin-top:25px;
+    opacity: .6;
+}
+
+#mergeBtn.enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#mergeBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
 }
 
 .merge-container .btn.clear{
@@ -474,6 +485,7 @@ button:hover{
     font-weight:600;
     transition:0.3s;
 }
+
 
 .split-container .btn:hover{ opacity:0.9; }
 
@@ -747,3 +759,47 @@ button:hover{
 .unlock-container button:disabled {
     background: #8bbff1;
 }
+
+.contact-container{
+    width: var(--width);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.contact-container .contact-header{
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container form .errorlist{
+    color: red;
+    padding: 1rem;
+}
+
+.contact-container form .helptext{
+    padding: 0 1rem;
+    color: var(--secondary-color);
+}
+
+.contact-container form input, .contact-container form textarea{
+    width: 100%;
+    padding: .5rem;
+    outline: 1px solid var(--primary-color);
+    border: none;
+    border-radius: var(--default-radius);
+    margin-top: .8rem;
+}
+
+.contact-container button{
+    margin: 1rem 0;
+}
+
+
+

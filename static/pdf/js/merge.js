@@ -11,6 +11,7 @@ const clearBtn = document.getElementById('clearBtn');
 const browseText = document.getElementById('browseText');
 const loader = document.getElementById('loader');
 const successMsg = document.getElementById('successMsg');
+const mergeBtn = document.getElementById("mergeBtn");
 
 let files = [];
 
@@ -28,6 +29,8 @@ function updateUI(){
       '<div style="color:var(--muted);padding:12px;border-radius:8px">No files selected</div>';
     return;
   }
+  mergeBtn.disabled = false;
+  mergeBtn.classList.add("enabled");
 
   files.forEach((file, idx)=>{
     const card = document.createElement('div');
@@ -66,6 +69,8 @@ function updateUI(){
     filesContainer.appendChild(card);
   });
 }
+
+
 
 function addFiles(selected){
   [...selected].forEach(f=>{

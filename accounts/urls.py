@@ -4,5 +4,6 @@ from accounts import views
 app_name = 'accounts'
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('register',views.Register.as_view(), name='register' ),
+    path('register/',views.Register.as_view(), name='register' ),
+    path('contact/',views.ContactView.as_view(), name='contact' ),
 ]

@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.views import View
 
+from accounts.forms import ContactForm
+
 
 class Register(View):
     def get(self, *args, **kwargs):
@@ -18,3 +20,9 @@ class Register(View):
             login(self.request, new_user)
             return redirect('pdf:home-view')
         return render(self.request, 'registration/register.html', context)
+
+class ContactView(View):
+    def get(self, *args, **kwargs):
+        form = ContactForm()
+        context = {'form': form}
+        return render(self.request, 'accounts/contact.html', context)
