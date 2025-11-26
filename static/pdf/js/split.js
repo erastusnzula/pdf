@@ -2,6 +2,8 @@
 const dropArea = document.getElementById("dropArea");
 const fileInput = document.getElementById("fileInput");
 const preview = document.getElementById("preview");
+const submitBtn = document.getElementById("submitBtn");
+
 
 dropArea.onclick = () => {
     fileInput.click()
@@ -30,6 +32,8 @@ fileInput.onchange = showPreview;
 function showPreview() {
     const file = fileInput.files[0];
     if (file) preview.textContent = "Selected: " + file.name;
+    submitBtn.disabled = false;
+    submitBtn.classList.add("enabled");
 }
 
 // Submit

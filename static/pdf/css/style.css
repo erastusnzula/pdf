@@ -476,7 +476,6 @@ button:hover{
     width:100%;
     background:var(--primary-color);
     color:white;
-    padding:15px;
     font-size:16px;
     border:none;
     border-radius:var(--default-radius);
@@ -484,10 +483,18 @@ button:hover{
     margin-top:25px;
     font-weight:600;
     transition:0.3s;
+    opacity: .6;
 }
 
+.split-container #submitBtn.enabled {
+  opacity: 1;
+  cursor: pointer;
+}
 
-.split-container .btn:hover{ opacity:0.9; }
+.split-container #submitBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
 
 /* Success */
 .split-container .success-message{
@@ -687,7 +694,6 @@ button:hover{
   margin-top: 25px;
   margin-bottom: 1rem;
   width: 100%;
-  padding: 12px;
   background: #0078D7;
   color: white;
   font-size: 18px;
@@ -747,7 +753,6 @@ button:hover{
 
 .unlock-container button {
     width: 100%;
-    padding: 14px;
     border: none;
     background: #0078D7;
     color: white;
@@ -799,6 +804,24 @@ button:hover{
 
 .contact-container button{
     margin: 1rem 0;
+}
+
+.contact-container .success-message{
+    background-color: #1faa00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    border-radius: var(--default-radius);
+}
+
+.contact-container .message{
+    color: var(--button-color);
+}
+
+.contact-container .cancel{
+    color: red;
+    text-decoration: none;
 }
 
 
