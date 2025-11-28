@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div class="login-container">
@@ -8,22 +8,6 @@
     </div>
 
     <div class="login-body">
-        <!--        <form class="login-form" method="post" action=".">-->
-        <!--            {% csrf_token %}-->
-        <!--            <label for="email">Email</label>-->
-        <!--            <input type="email" name="email" id="email" placeholder="Enter Your Email Address" required>-->
-        <!--            <label for="password">Password</label>-->
-        <!--            <input type="password" id="password" name="password" placeholder="Enter Your Password" required>-->
-        <!--            <label for="remember"><input type="checkbox" id="remember" name="remember"> Remember Me </label>-->
-
-        <!--            <button type="submit">Log In</button>-->
-        <!--            <label for="reset-password">-->
-        <!--                <a href="/" id="reset-password" class="reset-password">Reset Password</a>-->
-        <!--            </label>-->
-        <!--            <label for="register">-->
-        <!--                <a href="/" id="register" class="register">Don't have an account? Click Here To Register</a>-->
-        <!--            </label>-->
-        <!--        </form>-->
         <div class="errors">
 
         </div>
@@ -32,11 +16,15 @@
             {{ form.as_div }}
             <button type="submit" name="submit">Log in</button>
             <label for="register">
-                <a href="{% url 'accounts:register' %}" id="register" class="register">Don't have an account? Click Here To Register</a>
+                <a href="{% url 'accounts:register' %}" id="register" class="register">Don't have an account? Click Here
+                    To Register</a>
             </label>
         </form>
+
+        <button id="googleBtn">Continue with Google</button>
+
     </div>
 
 </div>
-
+<script type="module" src="{% static 'pdf/js/login.js' %}"></script>
 {% endblock %}

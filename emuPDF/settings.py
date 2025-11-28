@@ -145,12 +145,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 FIREBASE_CONFIG = {
-    'api_key': env('API_KEY', default=''),
-    'auth_domain':env('AUTH_DOMAIN', default=''),
-    'project_id': env('PROJECT_ID', default=''),
-    'storage_bucket': env('STORAGE_BUCKET', default=''),
-    'messaging_sender_id': env('MESSAGING_SENDER_ID', default=''),
-    'app_id': env('APP_ID', default='')
+    'apiKey': env('API_KEY'),
+    'authDomain':env('AUTH_DOMAIN'),
+    'projectId': env('PROJECT_ID'),
+    'storageBucket': env('STORAGE_BUCKET'),
+    'messagingSenderId': env('MESSAGING_SENDER_ID'),
+    'appId': env('APP_ID')
 }
 
 LOGIN_REDIRECT_URL = "/"

@@ -824,5 +824,13 @@ button:hover{
     text-decoration: none;
 }
 
+@media screen and (max-width: 600px){
+    .home-container .summary, .home-container .details {
+        margin-bottom: 1rem;
+        text-align: left;
+        font-size: 14px;
+    }
+}
+
 
 
