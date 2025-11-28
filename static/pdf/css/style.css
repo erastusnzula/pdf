@@ -189,12 +189,23 @@ button:hover{
 
 .login-container .login-body form #register{
     text-decoration: none;
+    text-align: center;
 }
 
 .login-container .login-body form #register:hover{
     color: var(--primary-color);
 }
 
+.login-container .loginGoogle p{
+    color: var(--primary-color);
+    opacity: 1;
+    text-align: center;
+
+}
+
+.login-container .loginGoogle button{
+    width: 100%;
+}
 
 /* .login-container .login-body form #remember{
     outline: none;
