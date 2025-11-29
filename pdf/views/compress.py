@@ -4,6 +4,7 @@ from django.views import View
 from django.shortcuts import render, HttpResponse
 from pikepdf import Pdf
 import pikepdf
+from django.conf import settings
 
 class CompressView(View):
     def get(self, *args, **kwargs):
@@ -16,7 +17,7 @@ class CompressView(View):
             return HttpResponse("No file uploaded", status=400)
 
         # Save input
-        input_path = f"C:/Windows/Temp/{pdf_file.name}"
+        input_path = os.path.join(settings.BASE_DIR, pdf_file.name)
         with open(input_path, "wb+") as f:
             for chunk in pdf_file.chunks():
                 f.write(chunk)
@@ -24,7 +25,7 @@ class CompressView(View):
         # Output
         name, ext = os.path.splitext(pdf_file.name)
         output_name = f"{name}_compressed.pdf"
-        output_path = f"C:/Windows/Temp/{output_name}"
+        output_path = os.path.join(settings.BASE_DIR, output_name)
 
         # Compress
         pdf = Pdf.open(input_path)

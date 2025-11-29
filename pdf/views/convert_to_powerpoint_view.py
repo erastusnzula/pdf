@@ -1,4 +1,5 @@
 import os
+import tempfile
 import uuid
 
 from django.http import HttpResponse
@@ -9,9 +10,10 @@ from pdf2image import convert_from_path
 from pptx import Presentation
 from pptx.util import Inches
 
-POPPLER_PATH = os.path.join(settings.BASE_DIR, 'poppler-25.11.0/Library/bin')   # update this!
+POPPLER_PATH = os.path.join(settings.BASE_DIR, 'poppler-25.11.0/Library/bin')  # update this!
 
-TMP_DIR = os.getenv("TMP", "C:/Windows/Temp")
+TMP_DIR = tempfile.gettempdir()
+
 
 def pdf_to_pptx(pdf_path, output_path):
     slides = Presentation()
