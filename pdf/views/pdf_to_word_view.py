@@ -8,6 +8,7 @@ from pdf2docx import Converter
 
 TMP_DIR = os.path.join(os.getenv("TMP", "/tmp"))  # works on Windows and Linux
 
+
 def pdf_to_docx(input_path, output_path, start=0, end=None):
     """
     Convert input_path PDF to output_path DOCX.
@@ -19,9 +20,11 @@ def pdf_to_docx(input_path, output_path, start=0, end=None):
     finally:
         cv.close()
 
+
 class PdfToWord(View):
     def get(self, *args, **kwargs):
         return render(self.request, 'pdf/pdf_to_word.html')
+
     def post(self, *args, **kwargs):
         upload = self.request.FILES.get("pdf")
         if not upload:
