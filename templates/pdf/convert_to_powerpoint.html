@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="convert-powerpoint-container">
+
+    <h2>Convert PDF to PowerPoint</h2>
+    <p>Upload a PDF and download a .pptx slideshow (each page becomes a slide).</p>
+
+    <form action="." method="POST" enctype="multipart/form-data" id="pptForm">
+        {% csrf_token %}
+
+        <div id="dropzone">Drag & Drop PDF here or click to select</div>
+        <input id="fileInput" type="file" name="pdf" accept="application/pdf">
+        <div id="filename"></div>
+
+        <button id="submitBtn" disabled>Convert to PowerPoint</button>
+    </form>
+
+</div>
+{% include 'parts/home_links.html' %}
+<script src="{% static 'pdf/js/convertToPowerpoint.js' %}"></script>
+
+{% endblock content %}
+

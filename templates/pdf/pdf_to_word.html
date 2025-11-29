@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="convert-to-word-container">
+    <h2>Convert PDF to Word</h2>
+    <p class="lead">Upload a PDF and get a downloadable .docx. Best for normal PDFs (not scanned images).</p>
+
+    <form id="convertForm" method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div id="dropzone">
+            <p>Drag & Drop PDF here or click to select</p>
+        </div>
+
+        <input id="fileInput" type="file" name="pdf" accept="application/pdf">
+
+        <div id="filename"></div>
+
+        <button id="submitBtn" type="submit" disabled>Convert to Word</button>
+    </form>
+</div>
+
+{% include 'parts/home_links.html' %}
+<script src="{% static 'pdf/js/convertToWord.js' %}"></script>
+{% endblock content %}

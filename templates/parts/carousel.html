@@ -5,6 +5,9 @@
         <input type="radio" name="slide" id="s1" checked>
         <input type="radio" name="slide" id="s2">
         <input type="radio" name="slide" id="s3">
+        <input type="radio" name="slide" id="s4">
+        <input type="radio" name="slide" id="s5">
+        <input type="radio" name="slide" id="s6">
 
         <!-- Slide 1 -->
         <div class="slide slide1">
@@ -19,7 +22,7 @@
         <!-- Slide 2 -->
         <div class="slide slide2">
             <div class="content">
-<!--                <i class="icon">🗜️</i>-->
+                <!--                <i class="icon">🗜️</i>-->
                 <i class="icon">✂️</i>
                 <h2>Split PDF</h2>
                 <p>Split PDF into equal sizes</p>
@@ -37,6 +40,33 @@
                 <a href="{% url 'pdf:lock' %}" class="btn">Secure PDF</a>
             </div>
         </div>
+        <!-- Slide 6 -->
+        <div class="slide slide6">
+            <div class="content">
+                <i class="icon">🔓</i>
+                <h2>Unlock PDF</h2>
+                <p>Remove password from a locked PDF.</p>
+                <a href="{% url 'pdf:unlock' %}" class="btn">Unlock Now</a>
+            </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide slide4">
+            <div class="content">
+                <i class="icon">🗜️</i>
+                <h2>Compress PDF</h2>
+                <p>Reduce file size while maintaining quality.</p>
+                <a href="{% url 'pdf:compress' %}" class="btn">Compress PDF</a>
+            </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide slide5">
+            <div class="content">
+                <i class="icon">📝</i>
+                <h2>Convert PDF to Word</h2>
+                <p>Convert PDF into fully editable Word files.</p>
+                <a href="{% url 'pdf:convert-to-word' %}" class="btn">Convert PDF to Word</a>
+            </div>
+        </div>
     </div>
 
 
@@ -45,6 +75,9 @@
         <label for="s1" class="dot"></label>
         <label for="s2" class="dot"></label>
         <label for="s3" class="dot"></label>
+        <label for="s4" class="dot"></label>
+        <label for="s5" class="dot"></label>
+        <label for="s6" class="dot"></label>
     </div>
 
 </div>

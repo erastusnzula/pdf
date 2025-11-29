@@ -108,16 +108,37 @@ button:hover{
     display: none;
     position: absolute;
     flex-direction: column;
-    width: 150px;
+    width: 300px;
+    height: 70vh;
+    overflow-y: auto;
+    z-index: 9999;  
+    scrollbar-width: none;
     gap: .5rem;
     border-radius: var(--default-radius);
     padding: var(--dropdown-padding);
     background-color: var(--primary-color);
+    border-right: 1px solid #e3e7ee;
+   
+}
+
+.navbar .nav-container .nav-links .nav-link .dropdown-options::-webkit-scrollbar{
+    display: none;
 }
 
 .navbar .nav-container .nav-links .nav-link .dropdown-options a{
     color: var(--dropdown-color);
     margin-left: 1rem;
+    margin-right: 1rem;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.navbar .nav-container .nav-links .nav-link .dropdown-options a:hover{
+    background-color: var(--secondary-color);
 }
 
 .navbar .nav-container .nav-links .nav-link .dropdown:hover .dropdown-options {
@@ -128,9 +149,16 @@ button:hover{
     width: var(--width);
     margin: auto;
     padding: 1rem;
+    gap: 12px;
+    scrollbar-width: none;  
+    white-space: nowrap;
     overflow-x: auto;
     display: flex;
     justify-content: space-between;
+}
+
+.home-links::-webkit-scrollbar {
+    display: none;                /* Chrome, Edge */
 }
 
 .home-links a{
@@ -139,6 +167,7 @@ button:hover{
     padding: var(--button-padding);
     border-radius: var(--default-radius);
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .home-links a:hover{
@@ -534,7 +563,7 @@ button:hover{
 }
 
 .slides {
-  width: 300%;
+  width: 600%;
   height: 100%;
   display: flex;
   animation: autoplay 12s infinite;
@@ -556,6 +585,9 @@ button:hover{
 .slide1 { background: linear-gradient(135deg, #0078D7, #00B4FF); }
 .slide2 { background: linear-gradient(135deg, #FF6A00, #FF9D2E); }
 .slide3 { background: linear-gradient(135deg, #6A00FF, #B44CFF); }
+.slide4 { background: linear-gradient(135deg, #28a745, #63d471); }
+.slide5 { background: linear-gradient(135deg, #ff0055, #ff7aa2); }
+.slide6 { background: linear-gradient(135deg, #3D68FF, #5590FF); }
 
 .icon {
   font-size: 55px;
@@ -613,12 +645,18 @@ button:hover{
 #s1:checked ~ .slides { margin-left: 0; animation: none; }
 #s2:checked ~ .slides { margin-left: -100%; animation: none; }
 #s3:checked ~ .slides { margin-left: -200%; animation: none; }
+#s4:checked ~ .slides { margin-left: -300%; animation: none; }
+#s5:checked ~ .slides { margin-left: -400%; animation: none; }
+#s5:checked ~ .slides { margin-left: -500%; animation: none; }
 
 /* Auto-Slide Keyframes */
 @keyframes autoplay {
-  0%, 33% { margin-left: 0; }
-  33.01%, 66% { margin-left: -100%; }
-  66.01%, 100% { margin-left: -200%; }
+  0%, 16% { margin-left: 0; }
+  17%, 33% { margin-left: -100%; }
+  34%, 50% { margin-left: -200%; }
+  51%, 67% { margin-left: -300%; }
+  68%, 84% { margin-left: -400%; }
+  85%, 100% { margin-left: -500%; }
 }
 
 
@@ -833,6 +871,205 @@ button:hover{
 .contact-container .cancel{
     color: red;
     text-decoration: none;
+}
+
+.compress-container {
+    width: var(--width);
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+}
+
+.compress-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.compress-container p {
+    margin-top: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Dropzone */
+.compress-container #dropzone {
+    margin-top: 20px;
+    border: 2px dashed #0078D7;
+    padding: 40px 20px;
+    border-radius: 12px;
+    background: #eef6ff;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.compress-container #dropzone.dragover {
+    background: #d9ecff;
+    border-color: #005fa3;
+}
+
+.compress-container #dropzone p {
+    margin: 0;
+    font-size: 15px;
+    color: #0078D7;
+}
+
+/* Hidden file input */
+.compress-container #fileInput { display: none; }
+
+/* Button */
+.compress-container button {
+    width: 100%;
+    background: #0078D7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.compress-container button.enabled {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+/* Selected filename */
+.compress-container #filename {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #333;
+    display: none;
+}
+
+.convert-to-word-container {
+    width: var(--width);
+    margin: auto;
+    background: #fff;
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    
+}
+.convert-to-word-container h2 { 
+    margin: 0 0 8px; 
+    color: #222; 
+}
+.convert-to-word-container p.lead {
+    margin: 6px 0 18px; 
+    color: #666; 
+    font-size: 14px; 
+}
+
+.convert-to-word-container #dropzone {
+    border: 2px dashed #0078D7;
+    background: #eef6ff;
+    padding: 36px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+.convert-to-word-container #dropzone.dragover {
+     background: #d9ecff; 
+     border-color: #005fa3; 
+    }
+
+.convert-to-word-container #dropzone p { 
+    margin: 0; color: #0078D7; 
+    font-weight: 600; 
+}
+
+.convert-to-word-container #fileInput { 
+    display: none; 
+}
+.convert-to-word-container #filename { 
+    margin-top: 12px; 
+    display: none; 
+    color:#333; 
+    font-size:14px; 
+}
+
+.convert-to-word-container button {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    background: #0078D7;
+    color: white;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.convert-to-word-container button.enabled { 
+    opacity: 1; 
+    cursor: pointer; 
+}
+
+.convert-powerpoint-container{
+    width: var(--width);
+    margin: auto;
+    background: #fff;
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    
+}
+.convert-powerpoint-container h2 { 
+    margin: 0 0 10px; 
+}
+
+.convert-powerpoint-container p { 
+    color: #666; 
+}
+
+.convert-powerpoint-container #dropzone {
+    border: 2px dashed #0078D7;
+    background: #eef6ff;
+    padding: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+}
+.convert-powerpoint-container #dropzone.dragover {
+    background: #d4eaff;
+    border-color: #005fa3;
+}
+
+.convert-powerpoint-container #fileInput { 
+    display: none; 
+}
+
+.convert-powerpoint-container #filename { 
+    display: none; 
+    margin-top: 15px; 
+    font-size: 15px; 
+}
+
+.convert-powerpoint-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #0078D7;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.convert-powerpoint-container button.enabled {
+    opacity: 1;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

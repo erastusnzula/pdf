@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+
 <div class="compress-container">
-    <h1>Compress PDFs</h1>
+    <h2>Compress PDF (No Quality Loss)</h2>
+    <p>Drop your PDF here or click to browse.</p>
+    <form id="compressForm" action="/compress/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div id="dropzone">
+            <p>Drag & Drop PDF or Click</p>
+        </div>
+
+        <input type="file" id="fileInput" name="pdf" accept="application/pdf">
+
+        <p id="filename"></p>
+
+        <button id="submitBtn" type="submit" disabled>Compress PDF</button>
+    </form>
 </div>
+{% include 'parts/home_links.html' %}
+<script src="{% static 'pdf/js/compress.js' %}"></script>
+
 {% endblock content %}
