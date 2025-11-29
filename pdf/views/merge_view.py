@@ -9,6 +9,8 @@ from django.shortcuts import render
 
 class MergeView(View):
     def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            print("User authenticated.")
         return render(self.request, 'pdf/merge.html')
 
     def post(self, *args, **kwargs):
