@@ -17,7 +17,7 @@ class CompressView(View):
             return HttpResponse("No file uploaded", status=400)
 
         # Save input
-        input_path = os.path.join(settings.BASE_DIR, pdf_file.name)
+        input_path = os.path.join(settings.BASE_DIR, f"Compress_files/{pdf_file.name}")
         with open(input_path, "wb+") as f:
             for chunk in pdf_file.chunks():
                 f.write(chunk)
@@ -25,7 +25,7 @@ class CompressView(View):
         # Output
         name, ext = os.path.splitext(pdf_file.name)
         output_name = f"{name}_compressed.pdf"
-        output_path = os.path.join(settings.BASE_DIR, output_name)
+        output_path = os.path.join(settings.BASE_DIR, f"Compress_files/{output_name}")
 
         # Compress
         pdf = Pdf.open(input_path)
