@@ -1,4 +1,6 @@
 import os
+import tempfile
+
 import environ
 from pathlib import Path
 
@@ -146,3 +148,5 @@ FIREBASE_CONFIG = {
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/'
+
+TMP_DIR = tempfile.gettempdir()

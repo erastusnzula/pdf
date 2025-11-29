@@ -12,7 +12,7 @@ from pptx.util import Inches
 
 POPPLER_PATH = os.path.join(settings.BASE_DIR, 'poppler-25.11.0/Library/bin')  # update this!
 
-TMP_DIR = tempfile.gettempdir()
+TMP_DIR = os.path.join(settings.TMP_DIR)
 
 
 def pdf_to_pptx(pdf_path, output_path):
