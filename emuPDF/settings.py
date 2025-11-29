@@ -1,5 +1,3 @@
-
-
 import os
 import environ
 from pathlib import Path
@@ -7,15 +5,13 @@ from pathlib import Path
 import firebase_admin
 from firebase_admin import credentials
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-cred = credentials.Certificate(os.path.join(BASE_DIR,"firebase-service-account.json"))
+cred = credentials.Certificate(os.path.join(BASE_DIR, "firebase-service-account.json"))
 firebase_admin.initialize_app(cred)
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -28,10 +24,9 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default='*')
 
-
 # Application definition
 
-DEFAULT_APPS= [
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +39,7 @@ THIRD_PARTY_APPS = [
 
 ]
 
-LOCAL_APPS =[
+LOCAL_APPS = [
     'pdf',
     'accounts',
 ]
@@ -59,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'emuPDF.urls'
@@ -80,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'emuPDF.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
@@ -90,7 +85,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -110,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -121,7 +114,6 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -143,10 +135,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 FIREBASE_CONFIG = {
     'apiKey': env('API_KEY'),
-    'authDomain':env('AUTH_DOMAIN'),
+    'authDomain': env('AUTH_DOMAIN'),
     'projectId': env('PROJECT_ID'),
     'storageBucket': env('STORAGE_BUCKET'),
     'messagingSenderId': env('MESSAGING_SENDER_ID'),
