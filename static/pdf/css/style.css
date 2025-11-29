@@ -563,7 +563,7 @@ button:hover{
 }
 
 .slides {
-  width: 600%;
+  width: 700%;
   height: 100%;
   display: flex;
   animation: autoplay 12s infinite;
@@ -588,6 +588,7 @@ button:hover{
 .slide4 { background: linear-gradient(135deg, #28a745, #63d471); }
 .slide5 { background: linear-gradient(135deg, #ff0055, #ff7aa2); }
 .slide6 { background: linear-gradient(135deg, #3D68FF, #5590FF); }
+.slide7 { background: linear-gradient(135deg,#E74C3C,#FF7E67); }
 
 .icon {
   font-size: 55px;
@@ -647,16 +648,18 @@ button:hover{
 #s3:checked ~ .slides { margin-left: -200%; animation: none; }
 #s4:checked ~ .slides { margin-left: -300%; animation: none; }
 #s5:checked ~ .slides { margin-left: -400%; animation: none; }
-#s5:checked ~ .slides { margin-left: -500%; animation: none; }
+#s6:checked ~ .slides { margin-left: -500%; animation: none; }
+#s7:checked ~ .slides { margin-left: -600%; animation: none; }
 
 /* Auto-Slide Keyframes */
 @keyframes autoplay {
-  0%, 16% { margin-left: 0; }
-  17%, 33% { margin-left: -100%; }
-  34%, 50% { margin-left: -200%; }
-  51%, 67% { margin-left: -300%; }
-  68%, 84% { margin-left: -400%; }
-  85%, 100% { margin-left: -500%; }
+  0%, 14% { margin-left: 0%; }
+  15%, 28% { margin-left: -100%; }
+  29%, 42% { margin-left: -200%; }
+  43%, 56% { margin-left: -300%; }
+  57%, 70% { margin-left: -400%; }
+  71%, 84% { margin-left: -500%; }
+  85%, 100% { margin-left: -600%; }
 }
 
 

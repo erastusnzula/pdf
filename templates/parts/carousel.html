@@ -8,6 +8,7 @@
         <input type="radio" name="slide" id="s4">
         <input type="radio" name="slide" id="s5">
         <input type="radio" name="slide" id="s6">
+        <input type="radio" name="slide" id="s7">
 
         <!-- Slide 1 -->
         <div class="slide slide1">
@@ -67,6 +68,15 @@
                 <a href="{% url 'pdf:convert-to-word' %}" class="btn">Convert PDF to Word</a>
             </div>
         </div>
+        <!-- Slide 7 -->
+        <div class="slide slide7">
+            <div class="content">
+                <i class="icon">📊</i>
+                <h2>Convert to PowerPoint</h2>
+                <p>Convert PDFs into presentation slides.</p>
+                <a href="{% url 'pdf:convert-to-powerpoint' %}" class="btn">Convert to PowerPoint</a>
+            </div>
+        </div>
     </div>
 
 
@@ -78,6 +88,7 @@
         <label for="s4" class="dot"></label>
         <label for="s5" class="dot"></label>
         <label for="s6" class="dot"></label>
+        <label for="s7" class="dot"></label>
     </div>
 
 </div>
