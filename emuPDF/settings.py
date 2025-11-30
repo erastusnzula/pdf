@@ -150,3 +150,4 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/'
 
 # TMP_DIR = tempfile.gettempdir()
+POPPLER_PATH = os.path.join(BASE_DIR, 'poppler-25.11.0/Library/bin')
