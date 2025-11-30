@@ -149,4 +149,4 @@ FIREBASE_CONFIG = {
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/'
 
-TMP_DIR = tempfile.gettempdir()
+# TMP_DIR = tempfile.gettempdir()

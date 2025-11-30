@@ -10,9 +10,9 @@ from pdf2image import convert_from_path
 from pptx import Presentation
 from pptx.util import Inches
 
-POPPLER_PATH = os.path.join(settings.BASE_DIR, 'poppler-25.11.0/Library/bin')  # update this!
+POPPLER_PATH = os.path.join(settings.BASE_DIR, 'poppler-25.11.0/Library/bin')
 
-TMP_DIR = os.path.join(settings.TMP_DIR)
+TMP_DIR = os.path.join(os.getenv("TMP", "/tmp"))
 
 
 def pdf_to_pptx(pdf_path, output_path):
