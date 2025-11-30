@@ -19,7 +19,10 @@ def pdf_to_pptx(pdf_path, output_path):
     slides = Presentation()
 
     # Convert PDF → image pages
-    pages = convert_from_path(pdf_path, dpi=200)
+    if settings.DEBUG:
+        pages = convert_from_path(pdf_path, dpi=200,poppler_path=POPPLER_PATH)
+    else:
+        pages = convert_from_path(pdf_path, dpi=200)
 
     for page in pages:
         slide = slides.slides.add_slide(slides.slide_layouts[6])  # blank slide
