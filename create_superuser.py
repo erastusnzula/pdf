@@ -1,6 +1,11 @@
 import os
 import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "emuPDF.settings")
+
+# Setup Django
 django.setup()
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 
