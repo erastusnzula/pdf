@@ -146,6 +146,10 @@ FIREBASE_CONFIG = {
     'appId': env('APP_ID')
 }
 
+username = env('DJANGO_SUPERUSER_USERNAME')
+email = env('DJANGO_SUPERUSER_EMAIL')
+password = env('DJANGO_SUPERUSER_PASSWORD')
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/'
 
