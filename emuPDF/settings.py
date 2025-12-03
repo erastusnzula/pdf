@@ -146,12 +146,6 @@ FIREBASE_CONFIG = {
     'appId': env('APP_ID')
 }
 
-username = env('DJANGO_SUPERUSER_USERNAME')
-email = env('DJANGO_SUPERUSER_EMAIL')
-password = env('DJANGO_SUPERUSER_PASSWORD')
-
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/'
 
-# TMP_DIR = tempfile.gettempdir()
-POPPLER_PATH = os.path.join(BASE_DIR, 'poppler-25.11.0/Library/bin')
