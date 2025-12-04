@@ -236,19 +236,6 @@ button:hover{
     width: 100%;
 }
 
-/* .login-container .login-body form #remember{
-    outline: none;
-}
-
-.login-container .login-body form #reset-password{
-    text-decoration: none;
-}
-
-.login-container .login-body form #reset-password:hover{
-    color: var(--primary-color);
-}
-
- */
 
 .home-container{
     width: var(--width);
@@ -992,6 +979,7 @@ button:hover{
 .convert-to-word-container #fileInput { 
     display: none; 
 }
+
 .convert-to-word-container #filename { 
     margin-top: 12px; 
     display: none; 
@@ -1075,17 +1063,18 @@ button:hover{
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    .home-container .summary, .home-container .details {
-        margin-bottom: 1rem;
-        text-align: left;
-        font-size: 14px;
+@media (max-width: 600px){
+    :root{
+        --width: 100%;
     }
 
-    .navbar .nav-container .nav-logo img{
-        width: 300px;
+    body{
+        background-color: red;
     }
 }
+
+
+
 
 
 
